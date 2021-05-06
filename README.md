@@ -19,6 +19,6 @@ Another strong property of this piece is that it has 8 counts of squares that it
 ### Direction mobility
 Apart from the distance mobility another criteria that would contribute to the calculation of a piece value is the number of directions. In Figure 1, queen has 8 directions. The higher the direction the more dangerous the piece is.
 
-![](https://i.imgur.com/NQUsE0D.png)
+![](https://i.imgur.com/VbQoRUW.png)
 
 Figure 1: Queen at E4 square and its distance mobility counts
