@@ -11,14 +11,24 @@ In this article we will be describing a simple approach using mobility as the ma
 
 Piece mobility is an important factor in determining the value of a piece. It affects how the game would continue, for example a piece with lesser mobility is limited by the positions it is able to create. The advantage of a piece having high mobility is that it has potential to discover many positions which increases its chances to have favourable positions.
 
-### Distance mobility
+#### Distance mobility
 Consider figure 1, the queen is a very mobile piece in a game. It has 8 different directions making it very difficult to defend when it is attacking. It also has 3 counts of mobility that can reach a distance of 4 squares from its location at square E4. The 3 squares are A4, A8 and E8 or those marked with 4 on the board. This makes it a dangerous piece even at long distance. 
 
 Another strong property of this piece is that it has 8 counts of squares that it controls at a distance of 1 from E4 square, these are E5, F5, F4, F3, E3, D3, D4 and D5 or all those squares that are marked with 1, which would mean that opponent’s pieces cannot easily attack this piece at close range.
 
-### Direction mobility
+#### Direction mobility
 Apart from the distance mobility another criteria that would contribute to the calculation of a piece value is the number of directions. In Figure 1, queen has 8 directions. The higher the direction the more dangerous the piece is.
 
 ![](https://i.imgur.com/VbQoRUW.png)
 
 Figure 1: Queen at E4 square and its distance mobility counts
+
+## Calculation
+
+Piece value calculation will be based on the mobility described in mobility section and some other criteria. For every piece we store its mobility by a number of different ways a piece can move to at different distances. We also store the number of directions. Piece that can only move on one color (color-bound) like bishop will be given a penalty.
+
+Here are the 3 major criteria
+1)	Mobility at specific distances
+2)	Number of directions
+3)	Color bound penalties
+
