@@ -34,6 +34,9 @@ Piece value calculation will be based on the mobility described in mobility sect
 
 In criteria (1) and (2) some factors will be applied to get its initial value.
 
+#### General formula
+final_value = distance_mobility + direction_mobility – color-bound_penalty
+
 ### Example calculation
 #### A. Queen
 Location square: E4  
