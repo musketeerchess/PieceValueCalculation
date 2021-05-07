@@ -39,7 +39,7 @@ In criteria (1) and (2) some factors will be applied to get its initial value.
 Location square: E4  
 Variant: chess  
 
-##### 1. Mobility at specific distances  
+#### 1. Mobility at specific distances  
 ```
 Md1 = 8 (Mobility at distance 1)  
 Md2 = 8 (Mobility at distance 2)  
@@ -51,9 +51,9 @@ Each criteria will be multiplied by a factor to get its value contribution.
 See Table 1 for mobility factors. 
 
 #### Formula 1
-Value = criteria x factor
+`Value = criteria x factor`
 
-#### Table 1: Mobility factors
+##### Table 1: Mobility factors
 Md1f | Md2f | Md3f | Md4f
 ---  | ---  | ---  | ---
  50  | 30   |  24  | 12
@@ -71,13 +71,13 @@ Mdv1, Md2v and others are based on centipawn value, or 1 pawn = 100.
 
 `Distance mobility value = Md1v + Md2v + Md3v + Md4v = 400 + 240 + 192 + 36 = 868`
 
-##### 2. Number of directions
+#### 2. Number of directions
 The more directions a piece has the more it becomes valuable as it can move at different directions, which is difficult to trap/capture.
 
-#### Table 2: Number of direction factor
+##### Table 2: Number of direction factor
 direction factor |
 --- |
-8 |
+8   |
 
 We will use formula 1.
 ```
@@ -86,5 +86,15 @@ Queen at E4 number of directions = 8
 direction factor in Table 2 = 8
 Dirv = 8 x 8 = 64
 Direction mobility value = 64
+```
+
+#### 3. Color bound penalty
+Penalty is zero because a queen can move to a different color from its reference square at E4.
+
+Final value will be the sum of the distance mobility plus direction mobility less penalty.  
+
+```
+final_queen_value = distance_mobility + direction_mobility – color-bound_penalty
+Queen final value = 868 + 64 – 0 = 932
 ```
 
