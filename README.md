@@ -73,3 +73,18 @@ Mdv1, Md2v and others are based on centipawn value, or 1 pawn = 100.
 
 ##### 2. Number of directions
 The more directions a piece has the more it becomes valuable as it can move at different directions, which is difficult to trap/capture.
+
+#### Table 2: Number of direction factor
+direction factor |
+--- |
+8 |
+
+We will use formula 1.
+```
+Value = Number of directions x factor
+Queen at E4 number of directions = 8
+direction factor in Table 2 = 8
+Dirv = 8 x 8 = 64
+Direction mobility value = 64
+```
+
