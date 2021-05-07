@@ -51,7 +51,7 @@ Each criteria will be multiplied by a factor to get its value contribution.
 See Table 1 for mobility factors. 
 
 #### Formula 1
-`Value = criteria x factor`
+`value = criteria x factor`
 
 ##### Table 1: Mobility factors
 Md1f | Md2f | Md3f | Md4f
@@ -67,9 +67,9 @@ Md3v = Md3 x Md3f = 8 x 24 = 192
 Md4v = Md4 x Md4f = 3 x 12 = 36
 ```
 
-Mdv1, Md2v and others are based on centipawn value, or 1 pawn = 100.
+Md1v, Md2v and others are based on centipawn value, or 1 pawn = 100.
 
-`Distance mobility value = Md1v + Md2v + Md3v + Md4v = 400 + 240 + 192 + 36 = 868`
+`distance_mobility = Md1v + Md2v + Md3v + Md4v = 400 + 240 + 192 + 36 = 868`
 
 #### 2. Number of directions
 The more directions a piece has the more it becomes valuable as it can move at different directions, which is difficult to trap/capture.
@@ -81,11 +81,10 @@ direction factor |
 
 We will use formula 1.
 ```
-Value = Number of directions x factor
-Queen at E4 number of directions = 8
+value = Number of directions x factor
+number of directions for queen = 8
 direction factor in Table 2 = 8
-Dirv = 8 x 8 = 64
-Direction mobility value = 64
+direction_mobility = 8 x 8 = 64
 ```
 
 #### 3. Color bound penalty
@@ -95,6 +94,6 @@ Final value will be the sum of the distance mobility plus direction mobility les
 
 ```
 final_queen_value = distance_mobility + direction_mobility – color-bound_penalty
-Queen final value = 868 + 64 – 0 = 932
+final_queen_value = 868 + 64 – 0 = 932
 ```
 
