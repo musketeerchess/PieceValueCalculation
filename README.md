@@ -27,8 +27,49 @@ Figure 1: Queen at E4 square and its distance mobility counts
 
 Piece value calculation will be based on the mobility described in mobility section and some other criteria. For every piece we store its mobility by a number of different ways a piece can move to at different distances. We also store the number of directions. Piece that can only move on one color (color-bound) like bishop will be given a penalty.
 
-Here are the 3 major criteria
-1)	Mobility at specific distances
-2)	Number of directions
-3)	Color bound penalties
+### Criteria
+1. Mobility at specific distances
+2. Number of directions
+3. Color bound penalties
 
+In criteria (1) and (2) some factors will be applied to get its initial value.
+
+### Example calculation
+#### A. Queen
+Location square: E4  
+Variant: chess  
+
+##### 1. Mobility at specific distances  
+```
+Md1 = 8 (Mobility at distance 1)  
+Md2 = 8 (Mobility at distance 2)  
+Md3 = 8 (Mobility at distance 3)  
+Md4 = 3 (Mobility at distance 4)  
+```
+
+Each criteria will be multiplied by a factor to get its value contribution.  
+See Table 1 for mobility factors. 
+
+#### Formula 1
+Value = criteria x factor
+
+#### Table 1: Mobility factors
+Md1f | Md2f | Md3f | Md4f
+---  | ---  | ---  | ---
+ 50  | 30   |  24  | 12
+
+We will use formula 1 to get its mobility values
+
+```
+Md1v = Md1 x Md1f = 8 x 50 = 400
+Md2v = Md2 x Md2f = 8 x 30 = 240
+Md3v = Md3 x Md3f = 8 x 24 = 192
+Md4v = Md4 x Md4f = 3 x 12 = 36
+```
+
+Mdv1, Md2v and others are based on centipawn value, or 1 pawn = 100.
+
+`Distance mobility value = Md1v + Md2v + Md3v + Md4v = 400 + 240 + 192 + 36 = 868`
+
+##### 2. Number of directions
+The more directions a piece has the more it becomes valuable as it can move at different directions, which is difficult to trap/capture.
