@@ -44,11 +44,12 @@ Variant: chess
 
 #### 1. Mobility at specific distances  
 ```
-Md1 = 8 (Mobility at distance 1)  
-Md2 = 8 (Mobility at distance 2)  
-Md3 = 8 (Mobility at distance 3)  
-Md4 = 3 (Mobility at distance 4)  
+Md1 = 8
+Md2 = 8
+Md3 = 8
+Md4 = 3
 ```
+Md1 refers to number of moves the queen can move from square E4 at distance 1. See figure 1 with squares that are marked by `1`, there are 8 of them. Md2, Md3 and Md4 are typical to Md1 but at different distances from square E4.
 
 Each criteria will be multiplied by a factor to get its value contribution.  
 See Table 1 for mobility factors. 
