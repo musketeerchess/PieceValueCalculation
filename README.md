@@ -93,7 +93,7 @@ direction_mobility = 8 x 8 = 64
 #### 3. Color bound penalty
 Penalty is zero because a queen can move to a different color from its reference square at E4.
 
-Final value will be the sum of the distance mobility plus direction mobility less penalty.  
+Final value will be the sum of the distance mobility plus direction mobility less penalty or simply the `general formula`.
 
 ```
 final_queen_value = distance_mobility + direction_mobility – color-bound_penalty
