@@ -55,7 +55,7 @@ Md1 refers to number of moves the queen can move from square E4 at distance 1. S
 #### Formula 1
 `value = criteria x factor`
 
-##### Table 1: Mobility factors
+##### Table 1: Distance Mobility Factors
 Md1f | Md2f | Md3f | Md4f
 ---  | ---  | ---  | ---
  50  | 30   |  24  | 12
@@ -73,7 +73,7 @@ Md1v, Md2v and others are based on centipawn value, or 1 pawn = 100.
 
 `distance_mobility = Md1v + Md2v + Md3v + Md4v = 400 + 240 + 192 + 36 = 868`
 
-#### 2. Number of directions factor
+#### 2. Number of Directions Factor
 The more directions a piece has the more it becomes valuable as it can move at different directions, which is difficult to trap/capture.
 
 ##### Table 2: Number of direction factor
