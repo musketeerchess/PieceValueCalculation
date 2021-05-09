@@ -73,7 +73,7 @@ Md1v, Md2v and others are based on centipawn value, or 1 pawn = 100.
 
 `distance_mobility = Md1v + Md2v + Md3v + Md4v = 400 + 240 + 192 + 36 = 868`
 
-#### 2. Number of directions factor
+#### 2. Direction mobility
 The more directions a piece has the more it becomes valuable as it can move at different directions, which is difficult to trap/capture.
 
 ##### Table 2: Direction Factor
@@ -83,9 +83,9 @@ direction factor |
 
 We will use formula 1.
 ```
-value = Number of directions x factor
-number of directions for queen = 8
-direction factor in Table 2 = 8
+direction_mobility = num_direction x factor
+num_direction = 8
+direction_factor = 8
 direction_mobility = 8 x 8 = 64
 ```
 
