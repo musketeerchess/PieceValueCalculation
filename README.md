@@ -32,10 +32,11 @@ Piece value calculation will be based on the mobility described in mobility sect
 2. Number of directions
 3. Color bound penalties
 
-In criteria (1) and (2) some factors will be applied to get its initial value.
+### Factors or Weights
+Factors are used to scale the criteria accross different piece types. These factors are generated from thousands of game simulations of Musketeer Chess games. The criteria will be multiplied by these factors to get its value contribution. See Table 1 and 2 for mobility factors.
 
 #### General formula
-`final_value = distance_mobility + direction_mobility – color-bound_penalty`
+`final_value = distance_mobility + direction_mobility – color_bound_penalty`
 
 ### Example calculation
 #### A. Queen
@@ -50,9 +51,6 @@ Md3 = 8
 Md4 = 3
 ```
 Md1 refers to number of moves the queen can move from square E4 at distance 1. See figure 1 with squares that are marked by `1`, there are 8 of them. Md2, Md3 and Md4 are typical to Md1 but at different distances from square E4.
-
-Each criteria will be multiplied by a factor to get its value contribution.  
-See Table 1 for mobility factors. 
 
 #### Formula 1
 `value = criteria x factor`
@@ -97,7 +95,7 @@ Penalty is zero because a queen can move to a different color from its reference
 Final value will be the sum of the distance mobility plus direction mobility less penalty or simply the `general formula`.
 
 ```
-final_queen_value = distance_mobility + direction_mobility – color-bound_penalty
+final_queen_value = distance_mobility + direction_mobility – color_bound_penalty
 final_queen_value = 868 + 64 – 0 = 932
 ```
 
