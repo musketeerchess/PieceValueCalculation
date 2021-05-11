@@ -1,11 +1,11 @@
 # Piece Value Calculation
-A method to calculate piece values of Chess, Musketeer Chess and other piece types.
+A method to estimate the piece values of the Musketeer Chess variant piece types such as `dragon`, `queen`, `archbishop`, `cannon` and others.
 
 ## Introduction
 
 There are some methods of calculating/estimating piece values, one is thru actual experience from playing games, machine learning by optimizing piece values from results of the games or from evaluation of millions of positions and others.
 
-In this article we will be describing a simple approach using mobility as the main criteria to calculate its value relative to other pieces. It consists of calculating the distance mobility from the central square, the number of directions and the penalty for color-bound piece type.
+In this article we will be describing a simple approach using mobility as the main criteria to calculate its value relative to other pieces. It consists of calculating the distance mobility from the central square, the number of directions and the penalty for color-bound piece type along with some factors or weights applied to those criteria.
 
 ## Mobility
 
@@ -42,8 +42,8 @@ Factors are used to scale the criteria accross different piece types. These fact
 The first step is to place the piece in E4 square. Then calculate the distance mobility from critera 1, direction mobility from criteria 2 and color-bound penalty from criteria 3. These three values are added to get the final estimate of the piece value.
 
 #### A. Queen
-Location square: E4
-Variant: chess  
+Location square: E4  
+Variant: Musketeer Chess  
 
 #### 1. Mobility at specific distances  
 ```
