@@ -45,7 +45,7 @@ The first step is to place the piece in E4 square. Then calculate the distance m
 Location square: E4  
 Variant: Musketeer Chess  
 
-#### 1. Mobility at specific distances  
+#### 1. Distance mobility  
 ```
 Md1 = 8
 Md2 = 8
@@ -106,4 +106,43 @@ Queen final value will be the sum of the distance mobility plus direction mobili
 final_queen_value = distance_mobility + direction_mobility – color_bound_penalty
 final_queen_value = 868 + 64 – 0 = 932
 ```
+
+#### B. Knight
+Location square: E4  
+Variant: Musketeer Chess
+
+#### 1. Distance Mobility
+
+ ```
+Md1 = 0
+Md2 = 8
+Md3 = 0
+Md4 = 0
+```
+
+See table 1 for mobility factors
+
+```
+value = criteria x factor
+
+Md1v = 0 x 50 = 0
+Md2v = 8 x 30 = 240
+Md3v = 0 x 24 = 0
+Md4v = 0 x 12 = 0
+distance_mobility = 0 + 240 + 0 + 0 = 240
+```
+
+#### 2. Direction mobility
+```
+direction_mobility = num_direction x factor
+num_direction = 8
+direction_factor = 8
+direction_mobility = 8 x 8 = 64
+```
+
+#### 3. Color-bound penalty
+`color_bound_penalty = 0`
+
+`knight_final_value = 240 + 64 – 0 = 304`
+
 
