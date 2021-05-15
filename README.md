@@ -33,7 +33,7 @@ Piece value calculation will be based on the mobility described in mobility sect
 3. Color bound penalties
 
 ### Factors or Weights
-Factors are used to scale the criteria accross different piece types. These factors are generated from thousands of game simulations of Musketeer Chess games. The criteria will be multiplied by these factors to get its value contribution. See Table 1 and 2 for mobility factors.
+Factors are used to scale the criteria across different piece types. These factors are generated from thousands of game simulations of Musketeer Chess games. The criteria will be multiplied by these factors to get its value contribution. See Table 1 and 2 for mobility factors.
 
 #### General formula
 `final_value = distance_mobility + direction_mobility – color_bound_penalty`
@@ -43,7 +43,7 @@ The first step is to place the piece in E4 square. Then calculate the distance m
 
 #### A. Queen
 Location square: E4  
-Variant: Musketeer Chess  
+Variant: Chess/Musketeer Chess  
 
 #### 1. Distance mobility  
 ```
@@ -109,7 +109,7 @@ final_queen_value = 868 + 64 – 0 = 932
 
 #### B. Knight
 Location square: E4  
-Variant: Musketeer Chess
+Variant: Chess/Musketeer Chess
 
 #### 1. Distance Mobility
 
@@ -141,8 +141,118 @@ direction_mobility = 8 x 8 = 64
 ```
 
 #### 3. Color-bound penalty
+We will use formula 2.
+
 `color_bound_penalty = 0`
 
 `knight_final_value = 240 + 64 – 0 = 304`
+
+#### C. Bishop
+Location square: E4  
+Variant: Chess/Musketeer Chess
+
+#### 1. Distance Mobility
+
+ ```
+Md1 = 4
+Md2 = 4
+Md3 = 4
+Md4 = 1
+```
+
+See table 1 for mobility factors
+
+```
+value = criteria x factor
+
+Md1v = 4 x 50 = 200
+Md2v = 4 x 30 = 120
+Md3v = 4 x 24 = 96
+Md4v = 1 x 12 = 12
+distance_mobility = 200 + 120 + 96 + 12 = 428
+```
+
+#### 2. Direction mobility
+```
+direction_mobility = num_direction x factor
+num_direction = 4
+direction_factor = 8
+direction_mobility = 4 x 8 = 32
+```
+
+#### 3. Color-bound penalty
+We will use formula 2.
+
+`color_bound_penalty = (428 + 32) / 3 = 153`
+
+`knight_final_value = 428 + 32 – 153 = 307`
+
+#### Table 3: FIDE chess piece types with values in centipawn
+Type	| Md1v	| Md2v	| Md3v	| Md4v	| Dirv	| Penalty	| Final
+---  | ---  | ---  | ---  | ---  | ---  | ------  | ---
+Knight	| 0	| 240	| 0	| 0	| 64	| 0	| 304
+Bishop	| 200	| 120	| 96	| 12	| 32	| 153	|307
+Rook	| 200	| 120	| 96	| 24	| 32	| 0	| 472
+Queen	| 400	| 240	| 192	| 36	| 64	| 0	| 932
+
+
+#### D. Leopard
+Location square: E4  
+Variant: Musketeer Chess
+
+Leopard is a one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit http://musketeerchess.net/site/game-rules/ for the rest of the musketeer chess piece movements.
+
+![leopard](https://i.imgur.com/OhBykPN.png)
+
+#### 1. Distance Mobility
+
+ ```
+Md1 = 4
+Md2 = 12
+Md3 = 0
+Md4 = 0
+```
+
+See table 1 for mobility factors
+
+```
+value = criteria x factor
+
+Md1v = 4 x 50 = 200
+Md2v = 12 x 30 = 360
+Md3v = 0 x 24 = 0
+Md4v = 0 x 12 = 0
+distance_mobility = 200 + 360 + 0 + 0 = 560
+```
+
+#### 2. Direction mobility
+```
+direction_mobility = num_direction x factor
+num_direction = 12
+direction_factor = 8
+direction_mobility = 12 x 8 = 96
+```
+
+#### 3. Color-bound penalty
+We will use formula 2.
+
+`color_bound_penalty = 0`
+
+`knight_final_value = 560 + 96 – 0 = 656`
+
+#### Table 4: The ten additional piece types for Musketeer chess variant with values in centipawn
+Type	| Md1v	| Md2v	| Md3v	| Md4v	| Dirv	| Penalty	| Final
+--- 	| ----	| ----	| ----	| ----	| ----	| -------	| ----
+Leopard	| 200	| 360	| 0	| 0	| 96	| 0	| 656
+Cannon	| 400	| 240	| 0	| 0	| 96	| 0	| 736
+Unicorn	| 0	| 240	| 192	| 0	| 128	| 0	| 560
+Dragon	| 400	| 480	| 192	| 36	| 128	| 0	| 1236
+Chancellor	| 200	| 360	| 96	| 24	| 96	| 0	| 776
+Archbishop	| 200	| 360	| 96	| 12	| 96	| 0	| 764
+Elephant	| 400	| 240	| 0	| 0	| 64	| 0	| 704
+Hawk	| 0	| 240	| 192	| 0	| 64	| 0	| 496
+Fortress	| 200	| 360	| 96	| 0	| 96	| 0	| 752
+Spider	| 200	| 480	| 0	| 0	| 128	| 0	| 808
+
 
 
