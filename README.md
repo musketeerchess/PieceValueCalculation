@@ -1,13 +1,15 @@
 # Piece Value Calculation
-A method to estimate the piece values of the Musketeer Chess variant piece types such as `dragon`, `queen`, `archbishop`, `cannon` and others.
 
-## Introduction
+## Abstract
+A method to estimate the piece values [[2]](#2) of the Musketeer Chess variant piece types such as `dragon`, `queen`, `archbishop`, `cannon` and others.
+
+## 1. Introduction
 
 There are some methods of calculating/estimating piece values, one is thru actual experience from playing games, machine learning by optimizing piece values from results of the games or from evaluation of millions of positions and others.
 
 In this article we will be describing a simple approach using mobility as the main criteria to calculate its value relative to other pieces. It consists of calculating the distance mobility from the central square, the number of directions and the penalty for color-bound piece type along with some factors or weights applied to those criteria.
 
-## Mobility
+## 2. Mobility
 
 Piece mobility is an important factor in determining the value of a piece. It affects how the game would continue, for example a piece with lesser mobility is limited by the positions it is able to create. The advantage of a piece having high mobility is that it has potential to discover many positions which increases its chances to have favourable positions.
 
@@ -23,7 +25,7 @@ Apart from the distance mobility another criteria that would contribute to the c
 
 Figure 1: Queen at E4 square shows its distance and direction mobility.
 
-## Calculation
+## 3. Calculation
 
 Piece value calculation will be based on the mobility described in mobility section and some other criteria. For every piece we store its mobility by a number of different ways a piece can move to at different distances. We also store the number of directions. Piece that can only move on one color (color-bound) like bishop will be given a penalty.
 
@@ -200,7 +202,7 @@ Queen	| 400	| 240	| 192	| 36	| 64	| 0	| 932
 Location square: E4  
 Variant: Musketeer Chess
 
-Leopard is a one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit http://musketeerchess.net/site/game-rules/ for the rest of the musketeer chess piece movements.
+Leopard is a one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit [[1]](#1) for the rest of the musketeer chess piece movements.
 
 ![leopard](https://i.imgur.com/OhBykPN.png)
 
@@ -253,6 +255,13 @@ Elephant	| 400	| 240	| 0	| 0	| 64	| 0	| 704
 Hawk	| 0	| 240	| 192	| 0	| 64	| 0	| 496
 Fortress	| 200	| 360	| 96	| 0	| 96	| 0	| 752
 Spider	| 200	| 480	| 0	| 0	| 128	| 0	| 808
+
+## Acknowledgement
+Zied Haddad the inventor of Musketeer Chess variant.
+
+## References
+<a id="1">[1]</a> Musketeer Chess Game Rules. URL http://musketeerchess.net/site/game-rules/.  
+<a id="2">[2]</a> Musketeer Chess Rules and Performance Test. URL https://github.com/fsmosca/musketeer-chess.
 
 
 
