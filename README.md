@@ -62,14 +62,35 @@ where:
 
 ### 3.5 &nbsp;Formula 3
 ```
-color_bound_penalty = (distance_mobility + direction_mobility) / 3
+color_bound_penalty = (distance_mobility + direction_mobility) / cbf
 where:
+    cbf = color-bound factor
     distance_mobility = a value from formula 1
     direction_mobility = a value from formula 2
 ```
 
 ### 3.6 &nbsp;General formula
 `final_value = distance_mobility + direction_mobility – color_bound_penalty`
+
+### 3.7 &nbsp;Algorithm 1
+Run engine vs engine matches to find the best factors.
+
+```python
+def find_best_factors():
+    current_best_factor = get_init_best()
+
+    for i in range(10000):
+        dm1f, dm2f, dm3f, dm4f, dirf, cbf = suggest_mobility_factors()
+
+        # leopard/hawk, cannon/dragon ... 45 combinations
+        for pc_combo in all_45_musketeer_piece_combo:    
+            test_result = run_match(dm1f, dm2f, dm3f, dm4f, dirf, cbf, current_best, games=200)
+            if test_result > 0.5:
+                update_current_best_factor()
+
+    return get_current_best_factor()
+```
+The `get_current_best_factor()` would return the best dm1f, dm2f, dm3f, dm4f, dirf and cbf.
 
 ## 4. &nbsp;Example piece value calculations
 The first step is to put the piece in E4 square. Then calculate the distance mobility, direction mobility and color-bound penalty. These three values are added to get the final estimate of the piece value.
