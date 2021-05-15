@@ -1,7 +1,10 @@
-# Piece Value Calculation
+<div align="center">
+<h1>Piece Value Calculation</h1>
 
-## Abstract
-A method to estimate the piece values [[2]](#2) of the Musketeer Chess variant piece types such as `dragon`, `queen`, `archbishop`, `cannon` and others.
+<h2>Abstract</h2>
+
+A method to estimate the piece values [[2]](#2) of the Musketeer Chess variant piece types such as `archbishop`, `cannon`, `chancellor`, `dragon`, `elephant`, `fortress`, `hawk`, `leopard`, `spider` and `unicorn`; and chess piece types such as `queen`, `rook`, `bishop`, and `knight`.
+</div>
 
 ## 1. &nbsp;Introduction
 
@@ -283,12 +286,12 @@ We will use formula 3.
 
 #### Table 3 &nbsp;FIDE chess piece types with values in centipawn
 
-| type	  | md1v	| md2v	| md3v	| md4v	| dirv	| penalty  | value |
+| type    | md1v    | md2v  | md3v  | md4v  | dirv  | penalty  | value |
 |:-------:|:-------:|:-----:|:-----:|:-----:|:-----:|:--------:|:-----:|
-|Knight	  | 0	    | 240   | 0	    | 0 	| 64  	| 0        | 304   |
-|Bishop	  | 200	    | 120   | 96    | 12    | 32	| 153	   | 307   |
-|Rook	  | 200	    | 120	| 96    | 24    | 32	| 0	       | 472   |
-|Queen	  | 400	    | 240	| 192   | 36    | 64	| 0	       | 932   |
+| Knight  | 0	    | 240   | 0	    | 0 	| 64  	| 0        | 304   |
+| Bishop  | 200	    | 120   | 96    | 12    | 32	| 153	   | 307   |
+| Rook    | 200	    | 120	| 96    | 24    | 32	| 0	       | 472   |
+| Queen	  | 400	    | 240	| 192   | 36    | 64	| 0	       | 932   |
 
 ### 4.4 &nbsp;Leopard
 
