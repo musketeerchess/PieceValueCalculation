@@ -103,8 +103,8 @@ Penalty is zero because a queen can move to a different color from its reference
 Queen final value will be the sum of the distance mobility plus direction mobility less color-bound penalty.
 
 ```
-final_queen_value = distance_mobility + direction_mobility – color_bound_penalty
-final_queen_value = 868 + 64 – 0 = 932
+final_value = distance_mobility + direction_mobility – color_bound_penalty
+final_value = 868 + 64 – 0 = 932
 ```
 
 #### B. Knight
@@ -145,7 +145,7 @@ We will use formula 2.
 
 `color_bound_penalty = 0`
 
-`knight_final_value = 240 + 64 – 0 = 304`
+`final_value = 240 + 64 – 0 = 304`
 
 #### C. Bishop
 Location square: E4  
@@ -185,7 +185,7 @@ We will use formula 2.
 
 `color_bound_penalty = (428 + 32) / 3 = 153`
 
-`knight_final_value = 428 + 32 – 153 = 307`
+`final_value = 428 + 32 – 153 = 307`
 
 #### Table 3: FIDE chess piece types with values in centipawn
 Type	| Md1v	| Md2v	| Md3v	| Md4v	| Dirv	| Penalty	| Final
@@ -238,7 +238,7 @@ We will use formula 2.
 
 `color_bound_penalty = 0`
 
-`knight_final_value = 560 + 96 – 0 = 656`
+`final_value = 560 + 96 – 0 = 656`
 
 #### Table 4: The ten additional piece types for Musketeer chess variant with values in centipawn
 Type	| Md1v	| Md2v	| Md3v	| Md4v	| Dirv	| Penalty	| Final
