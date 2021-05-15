@@ -108,7 +108,6 @@ def find_best_factors():
         # Get the average result for all pc combo.
         ave_result = sum_result/45
         if ave_result > 0.5:
-            # This new best factors will be tested against the next suggested factors.
             update_current_best_factor()
 
     return get_current_best_factor()
