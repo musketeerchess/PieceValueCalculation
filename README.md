@@ -83,10 +83,16 @@ def find_best_factors():
         dm1f, dm2f, dm3f, dm4f, dirf, cbf = suggest_mobility_factors()
 
         # leopard/hawk, cannon/dragon ... 45 combinations
+        sum_result = 0
         for pc_combo in all_45_musketeer_piece_combo:    
-            test_result = run_match(dm1f, dm2f, dm3f, dm4f, dirf, cbf, current_best, pc_combo, games=200)
-            if test_result > 0.5:
-                update_current_best_factor()
+            test_result = run_match(dm1f, dm2f, dm3f, dm4f, dirf, cbf, current_best_factor, pc_combo, games=200)
+            sum_result += test_result
+            
+        # Get the average result for all pc combo.
+        ave_result = sum_result/45
+        if ave_result > 0.5:
+            # This new best factors will be tested against the next suggested factors.
+            update_current_best_factor()
 
     return get_current_best_factor()
 ```
