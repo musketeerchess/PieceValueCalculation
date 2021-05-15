@@ -49,7 +49,7 @@ where:
     n = the distance from E4 square that a piece can move
     mdn = number of times that a piece can move to distance n from E4 square
     mdnf = the factor to scale the mdn, see table 1
-    mdnv = the value from multiplying mdn and factorn
+    mdnv = the value from multiplying mdn and mdnf
 ```
 
 ### 3.4 &nbsp;Formula 2
