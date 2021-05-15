@@ -84,7 +84,7 @@ def find_best_factors():
 
         # leopard/hawk, cannon/dragon ... 45 combinations
         for pc_combo in all_45_musketeer_piece_combo:    
-            test_result = run_match(dm1f, dm2f, dm3f, dm4f, dirf, cbf, current_best, games=200)
+            test_result = run_match(dm1f, dm2f, dm3f, dm4f, dirf, cbf, current_best, pc_combo, games=200)
             if test_result > 0.5:
                 update_current_best_factor()
 
