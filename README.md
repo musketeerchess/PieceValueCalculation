@@ -64,7 +64,7 @@ where:
 ```
 color_bound_penalty = (distance_mobility + direction_mobility) / cbf
 where:
-    cbf = color-bound factor
+    cbf = color-bound factor = 3
     distance_mobility = a value from formula 1
     direction_mobility = a value from formula 2
 ```
