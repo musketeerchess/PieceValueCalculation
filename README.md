@@ -140,7 +140,7 @@ md1 refers to number of moves the queen can move from square E4 at distance 1. S
 ##### Table 1. &nbsp;Distance Mobility Factors
 
 | md1f | md2f | md3f | md4f |
-|------|------|------|------|
+|:----:|:----:|:----:|:----:|
 |  50  |  30  |  24  |  12  |
 
 We will use formula 1 to get its mobility values
@@ -163,7 +163,7 @@ The more directions a piece has the more it becomes valuable as it can move at d
 ##### Table 2. &nbsp;Direction Factor
 
 | direction factor |
-|------------------|
+:-----------------:|
 |       8          |
 
 We will use formula 2.
@@ -283,12 +283,12 @@ We will use formula 3.
 
 #### Table 3 &nbsp;FIDE chess piece types with values in centipawn
 
-type	  | md1v	| md2v	| md3v	| md4v	| dirv	| penalty	| value |
--------|------|------|------|------|------|---------|-------|
-Knight	| 0	   | 240	 | 0	   |   0	 | 64  	| 0      	| 304   |
-Bishop	| 200	 | 120	 | 96	  | 12	  | 32	  | 153	    | 307   |
-Rook	  | 200	 | 120	 | 96	  | 24	  | 32	  | 0	      | 472   |
-Queen	 | 400	 | 240	 | 192	 | 36	  | 64	  | 0	      | 932   |
+type	  | md1v	| md2v	| md3v	| md4v	| dirv	| penalty  | value |
+:--------:|:-------:|:-----:|:-----:|:-----:|:-----:|:--------:|:-----:|
+Knight	  | 0	    | 240   | 0	    | 0 	| 64  	| 0        | 304   |
+Bishop	  | 200	    | 120   | 96    | 12    | 32	| 153	   | 307   |
+Rook	  | 200	    | 120	| 96    | 24    | 32	| 0	       | 472   |
+Queen	  | 400	    | 240	| 192   | 36    | 64	| 0	       | 932   |
 
 ### 4.4 &nbsp;Leopard
 
@@ -344,18 +344,18 @@ We will use formula 3.
 
 #### Table 4. &nbsp;The ten additional piece types for Musketeer chess variant with values in centipawn
 
-type	     | md1v	| md2v | md3v	| md4v	| mirv	| penalty	| value |
-----------|------|------|------|------|------|---------|-------|
-Leopard	  | 200	 | 360	 | 0	   | 0	   | 96	  | 0	      | 656   |
-Cannon	   | 400	 | 240	 | 0	   | 0	   | 96	  | 0	      | 736   |
-Unicorn	  | 0	   | 240	 | 192	 | 0	   | 128 	| 0	      | 560   |
-Dragon	   | 400	 | 480	 | 192	 | 36	  | 128	 | 0	      | 1236  |
-Chancellor| 200	 | 360	 | 96	  | 24	  | 96	  | 0	      | 776   |
-Archbishop| 200	 | 360	 | 96	  | 12	  | 96	  | 0	      | 764   |
-Elephant	 | 400	 | 240	 | 0	   | 0	   | 64	  | 0	      | 704   |
-Hawk	     | 0	   | 240	 | 192	 | 0	   | 64	  | 0	      | 496   |
-Fortress	 | 200	 | 360	 | 96	  | 0	   | 96	  | 0	      | 752   |
-Spider	   | 200	 | 480	 | 0	   | 0	   | 128	 | 0	      | 808   |
+type	     | md1v	| md2v | md3v	| md4v	| mirv	| penalty | value |
+:-----------:|:----:|:----:|:------:|:-----:|:-----:|:-------:|:-----:|
+Leopard	     | 200  | 360  | 0	    | 0	    | 96    | 0	      | 656   |
+Cannon	     | 400  | 240  | 0	    | 0	    | 96    | 0	      | 736   |
+Unicorn	     | 0	| 240  | 192	| 0	    | 128 	| 0	      | 560   |
+Dragon	     | 400	| 480  | 192	| 36	| 128   | 0	      | 1236  |
+Chancellor   | 200	| 360  | 96	    | 24	| 96	| 0	      | 776   |
+Archbishop   | 200	| 360  | 96	    | 12	| 96	| 0	      | 764   |
+Elephant	 | 400	| 240  | 0	    | 0	    | 64	| 0	      | 704   |
+Hawk	     | 0	| 240  | 192	| 0	    | 64	| 0	      | 496   |
+Fortress	 | 200	| 360  | 96	    | 0	    | 96	| 0	      | 752   |
+Spider	     | 200	| 480  | 0	    | 0	    | 128	| 0	      | 808   |
 
 ## 5. &nbsp;Acknowledgement
 
