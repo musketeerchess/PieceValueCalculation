@@ -283,7 +283,7 @@ We will use formula 3.
 
 `final_value = 428 + 32 – 153 = 307`
 
-#### Table 3. &nbsp;FIDE chess piece types with values in centipawn
+#### Table 3. &nbsp;FIDE chess piece types except Pawn with values in centipawn
 
 | type    | md1v    | md2v  | md3v  | md4v  | dirv  | penalty  | value |
 |:-------:|:-------:|:-----:|:-----:|:-----:|:-----:|:--------:|:-----:|
