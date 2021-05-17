@@ -3,7 +3,7 @@
 
 <h2>Abstract</h2>
 
-A method to estimate the piece values [[2]](#2) of the Musketeer Chess variant piece types such as `archbishop`, `cannon`, `chancellor`, `dragon`, `elephant`, `fortress`, `hawk`, `leopard`, `spider` and `unicorn`; and chess piece types such as `queen`, `rook`, `bishop`, and `knight`.
+A method to estimate the piece values of the Musketeer Chess <sup>[[2]](#2)</sup> variant piece types such as `archbishop`, `cannon`, `chancellor`, `dragon`, `elephant`, `fortress`, `hawk`, `leopard`, `spider` and `unicorn`; and chess piece types such as `queen`, `rook`, `bishop`, and `knight`.
 </div>
 
 ## 1. &nbsp;Introduction
@@ -283,7 +283,7 @@ We will use formula 3.
 
 `final_value = 428 + 32 – 153 = 307`
 
-#### Table 3 &nbsp;FIDE chess piece types with values in centipawn
+#### Table 3. &nbsp;FIDE chess piece types with values in centipawn
 
 | type    | md1v    | md2v  | md3v  | md4v  | dirv  | penalty  | value |
 |:-------:|:-------:|:-----:|:-----:|:-----:|:-----:|:--------:|:-----:|
@@ -297,7 +297,7 @@ We will use formula 3.
 Location square: E4  
 Variant: Musketeer Chess
 
-Leopard is a one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit [[1]](#1) for the rest of the musketeer chess piece movements. </br>
+Leopard is a one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit <sup>[[1]](#1)</sup> for the rest of the musketeer chess piece movements. </br>
 
 ![leopard](https://i.imgur.com/OhBykPN.png)  
 Figure 2 &nbsp;The leopard in E4 square can move 4 times at distance 1 and 12 times at distance 2 and it has 12 directions.
