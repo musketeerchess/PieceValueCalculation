@@ -50,7 +50,7 @@ md4v
 
 ### 3.2 &nbsp;Factors or Weights
 
-Factors are used to scale the criteria across different distances. These factors are generated from thousands of game simulations of Musketeer Chess games. The criteria will be multiplied by these factors to get its value contribution. See Table 1 and 2 for mobility factors.
+Factors are used to scale the criteria across different distances. These factors are generated from thousands of game simulations of Musketeer Chess games. The criteria will be multiplied by these factors to get its value contribution. See [Table 1](#table-1-distance-mobility-factors) and [2](#table-2-direction-factor) for mobility factors.
 
 ### 3.3 &nbsp;Formula 1
 
