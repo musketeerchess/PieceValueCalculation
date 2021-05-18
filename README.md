@@ -1,9 +1,14 @@
 <div align="center">
-<h1>Piece Value Calculation</h1>
+<h1>A simple way to estimate the Piece Values in a Game</h1>
+    
+<b>Ferdinand Mosca, Zied Haddad (1)</b>  
+((1) Musketeer Chess Corp)  
+
+2021-05-20</p>
 
 <h2>Abstract</h2>
 
-A method to estimate the piece values of the Musketeer Chess <sup>[[2]](#2)</sup> variant piece types such as `archbishop`, `cannon`, `chancellor`, `dragon`, `elephant`, `fortress`, `hawk`, `leopard`, `spider` and `unicorn`; and chess piece types such as `queen`, `rook`, `bishop`, and `knight`.
+This is a method to estimate the piece values of the Musketeer Chess <sup>[[2]](#2)</sup> variant piece types such as <b>archbishop, cannon, chancellor, dragon, elephant, fortress, hawk, leopard, spider and unicorn</b>; and chess piece types such as <b>queen, rook, bishop, and knight</b>.
 </div>
 
 ## 1. &nbsp;Introduction
