@@ -8,7 +8,7 @@ A method to estimate the piece values of the Musketeer Chess <sup>[[2]](#2)</sup
 
 ## 1. &nbsp;Introduction
 
-There are some methods of calculating/estimating piece values, one is thru actual experience from playing games, machine learning by optimizing piece values from results of the games or from evaluation of millions of positions and others.
+There are some methods of calculating/estimating piece values, one is through actual experience from playing games, machine learning by optimizing piece values from results of the games or from evaluation of millions of positions and others.
 
 In this article we will be describing a simple approach using mobility as the main criteria to calculate its value relative to other pieces. It consists of calculating the distance mobility from the central square, the number of directions and the penalty for color-bound piece type along with some factors or weights applied to those criteria.
 
@@ -27,15 +27,18 @@ Apart from the distance mobility another criteria that would contribute to the c
 ### 2.3 &nbsp;Color-bound penalty
 This is the penalty given to pieces that cannot move to other color on the board. An example of this is the bishop piece type in Chess.
 
+![queen](https://i.imgur.com/VbQoRUW.png)  
+Figure 1 &nbsp;The distance and direction mobilities of the queen from E4 square.
+
 ## 3. &nbsp;Calculation
 
-Piece value calculation will be based on the mobility described in mobility section and some other criteria. For every piece we store its mobility by a number of different ways a piece can move to at different distances. We also store the number of directions. Piece that can only move on one color (color-bound) like bishop will be given a penalty.
+Piece value calculation will be based on the mobility described in the mobility section. For every piece we store its mobility by a number of different ways a piece can move to at different distances. We also store the number of directions. Piece that can only move on one color (color-bound) like bishop will be given a penalty.
 
 ### 3.1 &nbsp;Criteria
 
 #### 3.1.1 &nbsp;Distance mobility
 
-On an 8x8 board there are at most a maximum distance of 4 that a piece can move to from E4 square for chess and musketeer chess variant piece types.
+On an 8x8 board there is at most a maximum distance of 4 that a piece can move to from E4 square for chess and musketeer chess variant piece types.
 
 ```
 md1v = mobility distance 1 value
@@ -122,9 +125,6 @@ The first step is to put the piece in E4 square. Then calculate the distance mob
 
 Location square: E4  
 Variant: Chess/Musketeer Chess
-
-![queen](https://i.imgur.com/VbQoRUW.png)  
-Figure 1 &nbsp;The distance and direction mobilities of the queen from E4 square.
 
 #### 4.1.1 &nbsp;Distance mobility
 
@@ -297,7 +297,7 @@ We will use formula 3.
 Location square: E4  
 Variant: Musketeer Chess
 
-Leopard is a one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit <sup>[[1]](#1)</sup> for the rest of the musketeer chess piece movements. </br>
+Leopard is one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit <sup>[[1]](#1)</sup> for the rest of the musketeer chess piece movements. </br>
 
 ![leopard](https://i.imgur.com/OhBykPN.png)  
 Figure 2 &nbsp;The leopard in E4 square can move 4 times at distance 1 and 12 times at distance 2 and it has 12 directions.
@@ -361,7 +361,7 @@ We will use formula 3.
 
 ## 5. &nbsp;Acknowledgement
 
-Zied Haddad the inventor of Musketeer Chess variant.
+Zied Haddad the inventor of the Musketeer Chess variant.
 
 ## 6. &nbsp;References
 
