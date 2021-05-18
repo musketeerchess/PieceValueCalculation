@@ -129,8 +129,6 @@ Variant: Chess/Musketeer Chess
 
 #### 4.1.1. &nbsp;Distance mobility
 
-We will use formula 1.  
-
 ```
 md1 = 8
 md2 = 8
