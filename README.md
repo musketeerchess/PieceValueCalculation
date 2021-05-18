@@ -16,27 +16,27 @@ In this article we will be describing a simple approach using mobility as the ma
 
 Piece mobility is an important factor in determining the value of a piece. It affects how the game would continue, for example a piece with lesser mobility is limited by the positions it is able to create. The advantage of a piece having high mobility is that it has potential to discover many positions which increases its chances to have favourable positions.
 
-### 2.1 &nbsp;Distance mobility
+### 2.1. &nbsp;Distance mobility
 Consider figure 1, the queen is a very mobile piece in a game. It has 8 different directions making it very difficult to defend when it is attacking. It also has 3 counts of mobility that can reach a distance of 4 squares from its location at square E4. The 3 squares are A4, A8 and E8 or those marked with 4 on the board. This makes it a dangerous piece even at long distance. 
 
 Another strong property of this piece is that it has 8 counts of squares that it controls at a distance of 1 from E4 square, these are E5, F5, F4, F3, E3, D3, D4 and D5 or all those squares that are marked with 1, which would mean that opponent’s pieces cannot easily attack this piece at close range.
 
-### 2.2 &nbsp;Direction mobility
+### 2.2. &nbsp;Direction mobility
 Apart from the distance mobility another criteria that would contribute to the calculation of a piece value is the number of directions. In Figure 1, queen has 8 directions. The higher the direction the more dangerous the piece is.
 
-### 2.3 &nbsp;Color-bound penalty
+### 2.3. &nbsp;Color-bound penalty
 This is the penalty given to pieces that cannot move to other color on the board. An example of this is the bishop piece type in Chess.
 
 ![queen](https://i.imgur.com/VbQoRUW.png)  
-Figure 1 &nbsp;The distance and direction mobilities of the queen from E4 square.
+Figure 1. &nbsp;The distance and direction mobilities of the queen from E4 square.
 
 ## 3. &nbsp;Calculation
 
 Piece value calculation will be based on the mobility described in the mobility section. For every piece we store its mobility by a number of different ways a piece can move to at different distances. We also store the number of directions. Piece that can only move on one color (color-bound) like bishop will be given a penalty.
 
-### 3.1 &nbsp;Criteria
+### 3.1. &nbsp;Criteria
 
-#### 3.1.1 &nbsp;Distance mobility
+#### 3.1.1. &nbsp;Distance mobility
 
 On an 8x8 board there is at most a maximum distance of 4 that a piece can move to from E4 square for chess and musketeer chess variant piece types.
 
@@ -47,15 +47,16 @@ md3v
 md4v
 ```
 
-#### 3.1.2 &nbsp;Direction mobility
+#### 3.1.2. &nbsp;Direction mobility
 
-#### 3.1.3 &nbsp;Color-bound mobility penalty
+#### 3.1.3. &nbsp;Color-bound mobility penalty
 
-### 3.2 &nbsp;Factors or Weights
+### 3.2. &nbsp;Factors or Weights
 
 Factors are used to scale the criteria across different distances. These factors are generated from thousands of game simulations of Musketeer Chess games. The criteria will be multiplied by these factors to get its value contribution. See [Table 1](#table-1-distance-mobility-factors) and [2](#table-2-direction-factor) for mobility factors.
 
-### 3.3 &nbsp;Formula 1
+### 3.3. &nbsp;Formula 1
+See section 4 for an example calculations.
 
 ```
 distance_mobility = Sum (mdnv)
@@ -67,7 +68,7 @@ where:
     mdnv = the value from multiplying mdn and mdnf
 ```
 
-### 3.4 &nbsp;Formula 2
+### 3.4. &nbsp;Formula 2
 
 ```
 direction_mobility = num_direction x direction_factor
@@ -76,7 +77,7 @@ where:
     direction_factor = the factor to scale num_direction, see table 2    
 ```
 
-### 3.5 &nbsp;Formula 3
+### 3.5. &nbsp;Formula 3
 
 ```
 color_bound_penalty = (distance_mobility + direction_mobility) / cbf
@@ -86,11 +87,11 @@ where:
     direction_mobility = a value from formula 2
 ```
 
-### 3.6 &nbsp;General formula
+### 3.6. &nbsp;General formula
 
 `final_value = distance_mobility + direction_mobility – color_bound_penalty`
 
-### 3.7 &nbsp;Algorithm 1
+### 3.7. &nbsp;Algorithm 1
 
 Run engine vs engine matches to find the best factors.
 
@@ -121,12 +122,12 @@ The `get_current_best_factor()` would return the best dm1f, dm2f, dm3f, dm4f, di
 
 The first step is to put the piece in E4 square. Then calculate the distance mobility, direction mobility and color-bound penalty. These three values are added to get the final estimate of the piece value.
 
-### 4.1 &nbsp;Queen
+### 4.1. &nbsp;Queen
 
 Location square: E4  
 Variant: Chess/Musketeer Chess
 
-#### 4.1.1 &nbsp;Distance mobility
+#### 4.1.1. &nbsp;Distance mobility
 
 We will use formula 1.  
 
@@ -158,7 +159,7 @@ md1v, md2v and others are based on centipawn value, or 1 pawn = 100.
 
 `distance_mobility = md1v + md2v + md3v + md4v = 400 + 240 + 192 + 36 = 868`
 
-#### 4.1.2 &nbsp;Direction mobility
+#### 4.1.2. &nbsp;Direction mobility
 
 The more directions a piece has the more it becomes valuable as it can move at different directions, which is difficult to trap/capture.
 
@@ -177,25 +178,25 @@ direction_factor = 8
 direction_mobility = 8 x 8 = 64
 ```
 
-#### 4.1.3 &nbsp;Color bound penalty
+#### 4.1.3. &nbsp;Color bound penalty
 
 Penalty is zero because a queen can move to a different color from its reference square at E4. However if a piece to be evaluated is color-bound like the bishop piece type then we will use formula 3.
 
 `color_bound_penalty = 0`
 
-#### 4.1.4 &nbsp;Final queen value
+#### 4.1.4. &nbsp;Final queen value
 
 ```
 final_value = distance_mobility + direction_mobility – color_bound_penalty
 final_value = 868 + 64 – 0 = 932
 ```
 
-### 4.2 &nbsp;Knight
+### 4.2. &nbsp;Knight
 
 Location square: E4  
 Variant: Chess/Musketeer Chess
 
-#### 4.2.1 &nbsp;Distance Mobility
+#### 4.2.1. &nbsp;Distance Mobility
 
 ```
 md1 = 0
@@ -216,7 +217,7 @@ md4v = 0 x 12 = 0
 distance_mobility = 0 + 240 + 0 + 0 = 240
 ```
 
-#### 4.2.2 &nbsp;Direction mobility
+#### 4.2.2. &nbsp;Direction mobility
 
 We will use formula 2.
 
@@ -227,22 +228,22 @@ direction_factor = 8
 direction_mobility = 8 x 8 = 64
 ```
 
-#### 4.2.3 &nbsp;Color-bound penalty
+#### 4.2.3. &nbsp;Color-bound penalty
 
 We will use formula 3.
 
 `color_bound_penalty = 0`
 
-#### 4.2.4 &nbsp;Final Knight value
+#### 4.2.4. &nbsp;Final Knight value
 
 `final_value = 240 + 64 – 0 = 304`
 
-### 4.3 &nbsp;Bishop
+### 4.3. &nbsp;Bishop
 
 Location square: E4  
 Variant: Chess/Musketeer Chess
 
-#### 4.3.1 &nbsp;Distance Mobility
+#### 4.3.1. &nbsp;Distance Mobility
 
 ```
 md1 = 4
@@ -263,7 +264,7 @@ md4v = 1 x 12 = 12
 distance_mobility = 200 + 120 + 96 + 12 = 428
 ```
 
-#### 4.3.2 &nbsp;Direction mobility
+#### 4.3.2. &nbsp;Direction mobility
 
 We will use formula 2.
 ```
@@ -273,13 +274,13 @@ direction_factor = 8
 direction_mobility = 4 x 8 = 32
 ```
 
-#### 4.3.3 &nbsp;Color-bound penalty
+#### 4.3.3. &nbsp;Color-bound penalty
 
 We will use formula 3.
 
 `color_bound_penalty = (428 + 32) / 3 = 153`
 
-#### 4.3.4 &nbsp;Final Bishop value
+#### 4.3.4. &nbsp;Final Bishop value
 
 `final_value = 428 + 32 – 153 = 307`
 
@@ -292,7 +293,7 @@ We will use formula 3.
 | Rook    | 200	    | 120	| 96    | 24    | 32	| 0	       | 472   |
 | Queen	  | 400	    | 240	| 192   | 36    | 64	| 0	       | 932   |
 
-### 4.4 &nbsp;Leopard
+### 4.4. &nbsp;Leopard
 
 Location square: E4  
 Variant: Musketeer Chess
@@ -300,9 +301,9 @@ Variant: Musketeer Chess
 Leopard is one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit <sup>[[1]](#1)</sup> for the rest of the musketeer chess piece movements. </br>
 
 ![leopard](https://i.imgur.com/OhBykPN.png)  
-Figure 2 &nbsp;The leopard in E4 square can move 4 times at distance 1 and 12 times at distance 2 and it has 12 directions.
+Figure 2. &nbsp;The leopard in E4 square can move 4 times at distance 1 and 12 times at distance 2 and it has 12 directions.
 
-#### 4.4.1 &nbsp;Distance Mobility
+#### 4.4.1. &nbsp;Distance Mobility
 
 ```
 md1 = 4
@@ -324,7 +325,7 @@ md4v = 0 x 12 = 0
 distance_mobility = 200 + 360 + 0 + 0 = 560
 ```
 
-#### 4.4.2 &nbsp;Direction mobility
+#### 4.4.2. &nbsp;Direction mobility
 
 We will use formula 2.
 
@@ -335,12 +336,12 @@ direction_factor = 8
 direction_mobility = 12 x 8 = 96
 ```
 
-#### 4.4.3 &nbsp;Color-bound penalty
+#### 4.4.3. &nbsp;Color-bound penalty
 We will use formula 3.
 
 `color_bound_penalty = 0`
 
-#### 4.4.4 &nbsp;Final Leopard value
+#### 4.4.4. &nbsp;Final Leopard value
 
 `final_value = 560 + 96 – 0 = 656`
 
