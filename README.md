@@ -2,13 +2,13 @@
 <h1>A simple way to estimate the Piece Values in a Game</h1>
     
 <b>Ferdinand Mosca, Zied Haddad (1)</b>  
-((1) Musketeer Chess Corp)  
+((1) Brainking Corp)  
 
 2021-05-20</p>
 
 <h2>Abstract</h2>
 
-This is a method to estimate the piece values of the Musketeer Chess <sup>[[2]](#2)</sup> variant piece types such as <b>archbishop, cannon, chancellor, dragon, elephant, fortress, hawk, leopard, spider and unicorn</b>; and chess piece types such as <b>queen, rook, bishop, and knight</b>.
+This is a method to estimate the piece relative value of any Classic or atypical Chess Piece (also known as Fairy Pieces). These pieces, should be Sliders or Jumpers without special moves, as defined by Ralph Betza in his "Funny Notation"[3]. In this work, the method was validated using atypical pieces described on Musketeer Chess <sup>[[2]](#2)</sup> Variant. These pieces are: <b>Archbishop, Cannon, Chancellor, Dragon, Elephant, Fortress, Hawk, Leopard, Spider and Unicorn</b>. Naturally, this method fits also for Classic Chess Pieces: <b>Queen, Rook, Bishop, and Knight</b>.
 </div>
 
 ## 1. &nbsp;Introduction
