@@ -8,14 +8,14 @@
 
 <h2>Abstract</h2>
 
-This is a method to estimate the piece relative value of any Classic or atypical Chess Piece (also known as Fairy Pieces). These pieces, should be Sliders or Jumpers without special moves, as defined by Ralph Betza in his "Funny Notation"[3]. In this work, the method was validated using atypical pieces described on Musketeer Chess <sup>[[2]](#2)</sup> Variant. These pieces are: <b>Archbishop, Cannon, Chancellor, Dragon, Elephant, Fortress, Hawk, Leopard, Spider and Unicorn</b>. Naturally, this method fits also for Classic Chess Pieces: <b>Queen, Rook, Bishop, and Knight</b>.
+This is a method to estimate the relative piece value of any Classic Chess Piece but also for atypical Pieces (also known as Fairy Pieces). The pieces should be Sliders (Rook, Bishop etc.) or Leapers (Knight etc.) but also hybrids (Both a Slider and a Leaper), like described in the excellent work by J.P.Jellis [3] in his "Simple Chess Variants" lecture. The method described here, isn't adapted for pieces having special moves (for example, that interact with other pieces, influencing their usual rules, like the Witch[4], or for Hoppers like Xiangqi Cannon[5] etc. The method we use in this work, was developed to have a preliminary relative value for the atypical pieces described in Musketeer Chess <sup>[[2]](#2)</sup> Variant. These pieces are: <b>Archbishop, Musketeer Cannon, Chancellor, Dragon also known as Amazon, Elephant, Fortress, Hawk, Leopard, Spider and Unicorn</b>. Naturally, this method fits the Classic Chess Pieces: <b>Queen, Rook, Bishop, and Knight</b>.
 </div>
 
 ## 1. &nbsp;Introduction
 
-There are some methods of calculating/estimating piece values, one is through actual experience from playing games, machine learning by optimizing piece values from results of the games or from evaluation of millions of positions and others.
+There are multitude of methods of calculating/estimating Chess piece values, one is through actual experience from playing games [6], machine learning [7] by optimizing piece values from results of the games or from evaluation of millions of positions |6] and others.
 
-In this article we will be describing a simple approach using mobility as the main criteria to calculate its value relative to other pieces. It consists of calculating the distance mobility from the central square, the number of directions and the penalty for color-bound piece type along with some factors or weights applied to those criteria.
+In this article we will be describing a simple approach using mobility as the main criteria to calculate its value relative to other pieces. It consists of calculating the distance mobility from the central square, the number of directions and the penalty for color-bound piece type along with some factors or weights applied to those criteria. This method is inspired from an old work by Ralph Betza [8].
 
 ## 2. &nbsp;Mobility
 
@@ -301,7 +301,9 @@ We will use formula 3.
 Location square: E4  
 Variant: Musketeer Chess
 
-Leopard is one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. Visit <sup>[[1]](#1)</sup> for the rest of the musketeer chess piece movements. </br>
+Leopard is one of the pieces in musketeer chess variant. It can move like a knight. It can also move like a bishop but is limited to a maximum distance of 2 squares in any direction from its origin. ![wsb_550x550_leopard](https://user-images.githubusercontent.com/34623005/119245351-ee18bb80-bb78-11eb-8de1-5e85e0014fdf.png)
+
+Visit <sup>[[1]](#1)</sup> for the rest of the musketeer chess piece movements. </br>
 
 ![leopard](https://i.imgur.com/OhBykPN.png)  
 Figure 2. &nbsp;The leopard in E4 square can move 4 times at distance 1 and 12 times at distance 2 and it has 12 directions.
@@ -371,6 +373,12 @@ Zied Haddad the inventor of the Musketeer Chess variant.
 
 <a id="1">[1]</a> Musketeer Chess Game Rules. URL http://musketeerchess.net/site/game-rules/.  
 <a id="2">[2]</a> Musketeer Chess Rules and Performance Test. URL https://github.com/fsmosca/musketeer-chess.
+<a id="3">[3]</a> G.P.Jellis, Simple Chess Variants. 2010. URL https://www.mayhematics.com/v/simplevariants.pdf
+<a id="4">[4]</a> E. Jan Karman (@evert823), The Witch Explained. 2018. URL https://www.chess.com/clubs/forum/view/witch-explained
+<a id="5">[5]</a> G.P.Jellis, A guide to Variant Chess. 2002. URL http://www.mayhematics.com/v/gm.htm#C
+<a id="6">[6]</a> L. Kaufman, "Evaluation of Material Imbalances", Chess Life, March 1999: 6-10. 
+<a id="7">[7]</a> C.B. Browne, E. Powley, D. Whitehouse & al., “A Survey of Monte Carlo Tree Search Methods. IEEE Transactions on Computational Intelligence and AI in Games”, Vol4(1), 1-43, 2012. 
+<a id="8">[8]</a> R. Betza, About the Values of Chess Pieces. 1996. https://www.chessvariants.com/d.betza/pieceval/index.html
 
 
 
