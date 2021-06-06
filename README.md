@@ -2,42 +2,49 @@
 <h1>A simple way to estimate the Piece Values in a Game</h1>
     
 <b>Ferdinand Mosca, Zied Haddad (1)</b>  
-((1) Musketeer Chess Corp)  
+((1) Musketeer Creations)  
 
-2021-05-20</p>
+2021-06-06</p>
 
 <h2>Abstract</h2>
 
-This is a method to estimate the piece values of the Musketeer Chess <sup>[[2]](#2)</sup> variant piece types such as <b>archbishop, cannon, chancellor, dragon, elephant, fortress, hawk, leopard, spider and unicorn</b>; and chess piece types such as <b>queen, rook, bishop, and knight</b>.
+We describe a simple method to estimate the relative value of "atypical" pieces, used in the game of Musketeer Chess <sup>[[2]](#2)</sup> variant. Musketeer Chess, is a Chess Variant whom main characteristics are to add two pieces to the classic Chess game. The play is still on an 8x8 Chequered Board. The additional pieces are introduced during the game by a drop mechanism. 
+This work is about the following 10 pieces: <b>Archbishop, Cannon, Chancellor, Dragon, Elephant, Fortress, Hawk, Leopard, Spider and Unicorn</b>. Our method evaluates the relative value of the Classic Chess pieces fairly precisely, which is a good indication of reliability. 
+
+This method is usable for many other "unusual" pieces, provided that they move in a classic way (they capture in the squares they can go to). This method was not tested in pieces with "special" moves, like Xiangqi Cannon with captures when hopping over an obstacle [3], Witch that alters iteraction with surrounding pieces[4] etc.
 </div>
 
 ## 1. &nbsp;Introduction
 
-There are some methods of calculating/estimating piece values, one is through actual experience from playing games, machine learning by optimizing piece values from results of the games or from evaluation of millions of positions and others.
+One of the first lessons when learning Chess is the piece relative value. The widely known system is the 1-3-3-5-9 system, with a Pawn worth 1 point, Knight and Bishop worth 3 points etc. It's not the most reliable one, but it's simplicity make it easy to remember.
+Other systems where either based on World Champions own mastery of the game and their own experience (Euwe [5], Fischer [6], Kasparov [7]), Extensive Database analysis of Chess Masters games (Kaufman [8]), automated engine vs engine matches with search for optimized values using various methods (SPSA [9,10], Nevergrad [11] etc.), Monte-Carlo Tree Search and machine learning [12].
+Our main goal was to provide a simple approach using piece mobility as the main criteria to calculate its relative value. The uniqueness of our methodology is that the mobility is calculated from central squares (we don't average mobility of the piece from all the squares): We sum weighted values for Distance Mobility, Number of Directions and Penalty for color-bound piece types.
+This method is inspired from previous works. The first one, was published by Taylor as early as in the 19th century [13] and more recently Ralph Betza, one of the fathers of modern chess variants [14]. 
+Our aim was to provide a starting point, to make introduction to Chess Variants and use of "Atypical" pieces easier, providing a relative value for these pieces, facilitating decision making and evaluation of forces on the board easier. 
 
-In this article we will be describing a simple approach using mobility as the main criteria to calculate its value relative to other pieces. It consists of calculating the distance mobility from the central square, the number of directions and the penalty for color-bound piece type along with some factors or weights applied to those criteria.
 
 ## 2. &nbsp;Mobility
 
-Piece mobility is an important factor in determining the value of a piece. It affects how the game would continue, for example a piece with lesser mobility is limited by the positions it is able to create. The advantage of a piece having high mobility is that it has potential to discover many positions which increases its chances to have favourable positions.
+Piece mobility is an important factor in determining the value of a piece [13-15]. The higher mobility, the bigger is for the piece to create threats and have favorable positions.
 
 ### 2.1. &nbsp;Distance mobility
-Consider figure 1, the queen is a very mobile piece in a game. It has 8 different directions making it very difficult to defend when it is attacking. It also has 3 counts of mobility that can reach a distance of 4 squares from its location at square E4. The 3 squares are A4, A8 and E8 or those marked with 4 on the board. This makes it a dangerous piece even at long distance. 
+Consider figure 1, the queen is a very mobile piece in a game. It has 8 different directions making it very difficult to defend when it is attacking. It also has 3 counts of mobility that can reach a distance of 4 squares from its location at E4 central square (squares A4, A8 and E8): squares marked with 4 on the board. This makes the Queen, the strongest and most dangerous piece, with long range attacking capabilities. 
 
-Another strong property of this piece is that it has 8 counts of squares that it controls at a distance of 1 from E4 square, these are E5, F5, F4, F3, E3, D3, D4 and D5 or all those squares that are marked with 1, which would mean that opponent’s pieces cannot easily attack this piece at close range.
+Another strong property of this piece is that it has 8 counts of squares that it controls at a distance of 1 from E4 square: the E5, F5, F4, F3, E3, D3, D4 and D5 squares. These squares are marked with 1, which would mean that opponent’s pieces cannot easily attack the Queen at close range.
 
 ### 2.2. &nbsp;Direction mobility
-Apart from the distance mobility another criteria that would contribute to the calculation of a piece value is the number of directions. In Figure 1, queen has 8 directions. The higher the direction the more dangerous the piece is.
+Apart from the distance mobility another criteria that would contribute to the calculation of a piece value is the number of directions. In Figure 1, queen can move in 8 different directions. The higher the number of different directions, the more dangerous the piece is (forking possibilities etc.)
 
 ### 2.3. &nbsp;Color-bound penalty
-This is the penalty given to pieces that cannot move to other color on the board. An example of this is the bishop piece type in Chess.
+This is the penalty given to pieces that cannot move to other color on the board. A known example is the Bishop, stuck to one colored squares (Bishop beginning on Dark squares, cannot move to light squares and vice versa).
 
 ![queen](https://i.imgur.com/VbQoRUW.png)  
 Figure 1. &nbsp;The distance and direction mobilities of the queen from E4 square.
 
 ## 3. &nbsp;Calculation
 
-Piece value calculation will be based on the mobility described in the mobility section. For every piece we store its mobility by a number of different ways a piece can move to at different distances. We also store the number of directions. Piece that can only move on one color (color-bound) like bishop will be given a penalty.
+Piece value calculation is based on various mobility parameters, as described in the mobility section. 
+For every piece we calculate the distance, where a piece can move to from the E4 square. We also calculate the number of different directions, the piece can go. We also take into account if a piece is color-bound, meaning that a piece is stuck to one color. The example of a color-bounded piece in Chess is Bishop. A colour-ounded piece will have a proportional penalty.
 
 ### 3.1. &nbsp;Criteria
 
@@ -371,6 +378,16 @@ Zied Haddad the inventor of the Musketeer Chess variant.
 
 <a id="1">[1]</a> Musketeer Chess Game Rules. URL http://musketeerchess.net/site/game-rules/.  
 <a id="2">[2]</a> Musketeer Chess Rules and Performance Test. URL https://github.com/fsmosca/musketeer-chess.
-
-
-
+<a id="3">[3]</a> Xiangqi cannon. URL https://en.wikipedia.org/wiki/Xiangqi#Cannon. 
+<a id="4">[4]</a> The Witch Explained. URL https://www.chess.com/clubs/forum/view/witch-explained.
+<a id="5">[5]</a> Euwe, Max; Kramer, Hans (1994) [1944], The Middlegame, vol. 1, Hays, ISBN 978-1-880673-95-9.
+<a id="6">[6]</a> Fischer, Bobby; Mosenfelder, Donn; Margulies, Stuart (1972), Bobby Fischer Teaches Chess, Bantam Books, ISBN 0-553-26315-3.
+<a id="7">[7]</a> Kasparov, Gary (1986), Kasparov Teaches Chess, Batsford, ISBN 0-7134-55268.
+<a id="8">[8]</a> Kaufman, Larry (March 1999), "The Evaluation of Material Imbalances", Chess Life, 1999(3): 6-10. 
+<a id="9">[9]</a> James C. Spall. Implementation of the Simultaneous Perturbation Algorithm for Stochastic Optimization. IEEE Transactions on Aerospace and electronic systems. 1998, 34(3): 817-23.
+<a id="10">[10]</a> SPSA tuner, to optimize engine evaluation parameters. URL https://github.com/ianfab/spsa.
+<a id="11">[11]</a> Nevergrad: A gradient-free optimization platform. URL https://github.com/facebookresearch/nevergrad.
+<a id="12">[12]</a> C.M. Miller, "Evolutionary Artificial Neural Network Weight tuning to Optimize decision makig for an Abstract Game.". M Sc diss. Air Force Inst. of Technology, Ohio, USA 2010.
+<a id="13">[13]</a> H.M. Taylor M.A. (1876) XXVII. On the relative values of the pieces in chess , Philosophical Magazine Series 5, 1:3, 221-229, DOI: 10.1080/14786447608639029
+<a id="14">[14]</a> Ralph Betza (1996). About the Values of Chess Pieces. https://www.chessvariants.com/d.betza/pieceval/.
+<a id="15">[15]</a> Soltis, Andy (2004), Rethinking the Chess Pieces, Batsford, ISBN 0-7134-8904-9.
