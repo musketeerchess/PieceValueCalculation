@@ -1,5 +1,5 @@
 <div align="center">
-<h1>A simple way to estimate the Piece Values in a Game</h1>
+<h1>A simple way to estimate the Relative Piece Value in a Game of Chess or Chess Variant</h1>
     
 <b>Ferdinand Mosca, Zied Haddad (1)</b>  
 ((1) Musketeer Creations)  
